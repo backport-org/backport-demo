@@ -11,6 +11,6 @@ jobs:
     name: Backport Action
     steps:
       - name: Backport
-        uses: sqren/backport-github-action@master
+        uses: sqren/backport-github-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
