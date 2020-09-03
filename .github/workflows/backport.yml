@@ -13,8 +13,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: 'sqren/backport-github-action'
+          path: 'backport-github-action'
       - run: yarn
       - run: yarn tsc
-      - uses: ./action.yml
+      - uses: ./backport-github-action/action.yml
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
