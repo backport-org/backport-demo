@@ -15,6 +15,6 @@ jobs:
           repository: 'sqren/backport-github-action'
       - run: yarn
       - run: yarn tsc
-      - uses: sqren/backport-github-action@master
+      - uses: ./backport-github-action/action.yml
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
