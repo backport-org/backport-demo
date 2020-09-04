@@ -7,15 +7,10 @@ on:
 
 jobs:
   backport:
-    name: Backport Action
     runs-on: ubuntu-latest
+    name: Backport Action
     steps:
-      - uses: actions/checkout@v2
-        with:
-          repository: 'sqren/backport-github-action'
-          path: 'backport-github-action'
-      - run: yarn
-      - run: yarn tsc
-      - uses: ./backport-github-action/action.yml
+      - name: Backport
+        uses: sqren/backport-github-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
