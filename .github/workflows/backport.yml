@@ -1,6 +1,4 @@
-name: Backport
 on:
-  workflow_dispatch:
   pull_request_target:
     branches:
       - master
@@ -17,22 +15,26 @@ jobs:
       && (
         (github.event.action == 'labeled' && github.event.label.name == 'auto-backport')
         || (github.event.action == 'closed')
-      )    
+      )
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Actions
         uses: actions/checkout@v2
         with:
-          repository: 'elastic/kibana-github-actions'
+          repository: 'sqren/backport-github-action'
           ref: main
-          path: ./actions
+          path: ./backport-github-action
 
       - name: Install Actions
-        run: npm install --production --prefix ./actions
+        run: npm install --production --prefix ./backport-github-action
 
       - name: Run Backport
-        uses: ./actions/backport
+        uses: ./backport-github-action
         with:
-          github_token: ${{secrets.ACCESS_TOKEN}}
-          commit_user: Soren Louv
-          commit_email: foobar@users.noreply.github.com
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          commit_user: Elastic CloudBot
+          commit_email: elasticcloudbot@users.noreply.github.com
+          username: mieciu
+
+      - name: Show log in case we failed
+        run: cat /home/runner/.backport/backport.log
