@@ -32,9 +32,6 @@ jobs:
         uses: ./backport-github-action
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
-          commit_user: Elastic CloudBot
-          commit_email: elasticcloudbot@users.noreply.github.com
-          username: mieciu
 
       - name: Show log in case we failed
         run: cat /home/runner/.backport/backport.log
