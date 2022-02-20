@@ -35,5 +35,5 @@ jobs:
           commit_user: Backport Bot
           commit_email: backportbot@users.noreply.github.com          
 
-      - name: Show log in case we failed
+      - name: Backport log
         run: cat /home/runner/.backport/backport.log
