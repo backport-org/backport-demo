@@ -31,9 +31,7 @@ jobs:
       - name: Run Backport
         uses: ./backport-github-action
         with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
-          commit_user: Backport Bot
-          commit_email: backportbot@users.noreply.github.com          
+          github_token: ${{secrets.GITHUB_TOKEN}}    
 
       - name: Backport log
         run: cat /home/runner/.backport/backport.log
