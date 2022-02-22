@@ -18,20 +18,10 @@ jobs:
       )
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Actions
-        uses: actions/checkout@v2
+      - name: Backport Action
+        uses: sqren/backport-github-action
         with:
-          repository: 'sqren/backport-github-action'
-          ref: main
-          path: ./backport-github-action
-
-      - name: Install Actions
-        run: npm install --production --prefix ./backport-github-action
-
-      - name: Run Backport
-        uses: ./backport-github-action
-        with:
-          github_token: ${{secrets.GITHUB_TOKEN}}    
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Backport log
         run: cat /home/runner/.backport/backport.log
