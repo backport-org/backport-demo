@@ -15,9 +15,9 @@ jobs:
 
       - name: Info log
         if: ${{ success() }}
-        run: cat /home/runner/.backport/backport.info.log 2>/dev/null
+        run: cat /home/runner/.backport/backport.info.log || echo "Log file not found"
         
       - name: Debug log
         if: ${{ failure() }}
-        run: cat /home/runner/.backport/backport.debug.log 2>/dev/null         
+        run: cat /home/runner/.backport/backport.debug.log || echo "Log file not found"
           
