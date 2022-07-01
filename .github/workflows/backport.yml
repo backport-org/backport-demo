@@ -1,3 +1,5 @@
+
+
 on:
   pull_request_target:
     types: ["labeled", "closed"]
@@ -6,35 +8,13 @@ jobs:
   backport:
     name: Backport PR
     runs-on: ubuntu-latest
-    if: |
-      github.event.pull_request.merged == true
-      && contains(github.event.pull_request.labels.*.name, 'auto-backport')
-      && (
-        (github.event.action == 'labeled' && github.event.label.name == 'auto-backport')
-        || (github.event.action == 'closed')
-      )
+    if: github.event.pull_request.merged == true
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      # This is necessary as the repository is checked out to avoid merge conflicts
-      # on daily canary file
-      - name: Sets committed to GitHub Actions bot
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-      - name: Local canary file always wins
-        run: |
-          git config --local include.path .gitconfig
-          git config --global merge.keeplocal.name "Always keep local file during merge"
-          git config --global merge.keeplocal.driver true
-      # Update backport action (https://github.com/sqren/backport/issues/391#issuecomment-1156355381)
       - name: Backport Action
         uses: sqren/backport-github-action@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          auto_backport_label_prefix: backport-to-
 
       - name: Info log
         if: ${{ success() }}
@@ -43,4 +23,3 @@ jobs:
       - name: Debug log
         if: ${{ failure() }}
         run: cat /home/runner/.backport/backport.debug.log || echo "Log file not found"
-          
