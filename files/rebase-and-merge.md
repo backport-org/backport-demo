@@ -8,3 +8,6 @@ One last change
 Foo
 
 Bar
+
+
+Baz
