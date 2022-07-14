@@ -18,7 +18,6 @@ jobs:
         uses: sqren/backport-github-action@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          auto_backport_label_prefix: backport-to-
 
       - name: Info log
         if: ${{ success() }}
