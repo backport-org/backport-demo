@@ -7,7 +7,7 @@
   ],
   "targetPRLabels": ["backport"],
   "branchLabelMapping": {
-    "^backport-to-(.+)$": "$1"
+    "^auto-backport-to-(.+)$": "$1"
   },
   "autoMerge": true,
   "autoMergeMethod": "squash"
