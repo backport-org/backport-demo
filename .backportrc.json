@@ -1,10 +1,6 @@
 {
   "upstream": "backport-org/backport-demo",
-  "targetBranchChoices": [
-    "master",
-    "production",
-    "staging"
-  ],
+  "targetBranchChoices": ["master", "production", "staging"],
   "targetPRLabels": ["backport"],
   "branchLabelMapping": {
     "^backport-to-(.+)$": "$1"
