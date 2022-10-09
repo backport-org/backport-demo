@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Backport Action
-        uses: sqren/backport-github-action@b1d9abf6a12774a3d2a79518fdc637baa0ad9e8d
+        uses: sqren/backport-github-action@add-better-logging
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
