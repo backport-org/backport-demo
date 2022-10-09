@@ -15,7 +15,7 @@ jobs:
       )    
     steps:
       - name: Backport Action
-        uses: sqren/backport-github-action@add-better-logging
+        uses: sqren/backport-github-action@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
