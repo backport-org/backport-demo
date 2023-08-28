@@ -6,7 +6,12 @@ jobs:
   backport:
     name: Backport PR
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+    if: |
+      github.event.pull_request.merged == true
+      && (
+        (github.event.action == 'labeled' && github.event.label.name == 'auto-backport')
+        || (github.event.action == 'closed')
+      )
     steps:
       - name: Backport Action
         uses: sqren/backport-github-action@main
