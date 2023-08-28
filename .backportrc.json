@@ -1,5 +1,8 @@
 {
   "upstream": "backport-org/backport-demo",
+  "targetBranches": {
+    "production"
+  },
   "targetBranchChoices": [
     "master",
     "production",
