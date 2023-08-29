@@ -1,11 +1,7 @@
 {
   "upstream": "backport-org/backport-demo",
-  "targetBranches": ["production"],
   "targetBranchChoices": ["master", "production", "staging"],
   "targetPRLabels": ["backport"],
-  "branchLabelMapping": {
-    "^auto-backport-to-(.+)$": "$1"
-  },
   "autoMerge": true,
   "autoMergeMethod": "squash"
 }
