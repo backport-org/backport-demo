@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Backport Action
-        uses: sqren/backport-github-action@beta
+        uses: sqren/backport-github-action@@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
