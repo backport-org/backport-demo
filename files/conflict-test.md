@@ -1,2 +1,3 @@
-This content only exists on production.
-It will conflict with the master version.
+Updated master content.
+This change will conflict when cherry-picked to production.
+The autoResolveConflictsWithTheirs feature should handle it.
