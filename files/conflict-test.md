@@ -1,2 +1,3 @@
-Original master content.
-This is the base version on master.
+Updated master content.
+This change will conflict when cherry-picked to production.
+The autoResolveConflictsWithTheirs feature should handle it.
