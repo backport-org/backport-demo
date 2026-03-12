@@ -3,5 +3,6 @@
   "targetBranchChoices": ["master", "production", "staging"],
   "targetPRLabels": ["backport"],
   "autoMerge": true,
-  "autoMergeMethod": "squash"
+  "autoMergeMethod": "squash",
+  "autoResolveConflictsWithTheirs": true
 }
